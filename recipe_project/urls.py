@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# include package will allow you to use the include() function that will link the urls.py
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # The empty quotes '' indicate that this path refers to the home page
+    path('', include('recipes.urls'))
 ]
+
