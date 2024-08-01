@@ -1,4 +1,5 @@
 <!--src/recipes/templates/recipes/recipes_home.html-->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,12 +12,13 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #0B2838;
-            background-image: url(img/brooke-lark-08bOYnH_r_E-unsplash.jpg);
+            background-image: url("https://i.etsystatic.com/10836510/r/il/b5ba08/1748425540/il_1588xN.1748425540_d87y.jpg");
             margin: 0;
             padding: 0;
 
         }
 
+        /*https://i.etsystatic.com/10836510/r/il/b5ba08/1748425540/il_1588xN.1748425540_d87y.jpg*/
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -24,13 +26,21 @@
             text-align: center;
         }
 
+        .intro {
+            background-color: #0B2838;
+            padding: 50px;
+            margin: 10px
+        }
+
         h1,
-        h3 {
-            color: #E89C31;
+        h2 {
+            color: #c4650c;
+            /*font-family: "Sweet Shine";*/
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
         p {
-            color: bisque;
+            color: #D9B99B;
         }
 
         /* .header {
@@ -66,14 +76,16 @@
 
 <body>
     <div class="container">
-        <h1>The Recipe App</h1>
-        <p><strong>Welcome!</strong></p>
-        <h3>Browse Recipes</h3>
-        <p>Please browse our collection of recipes.<br>
-            Try them for yourself and share with family and friends!</p>
-        <h3>Add Recipes</h3>
-        <p>We'd love for you to add your own recipes to our collection!<br>
-            Save them in your own personal recipe book and share them with others.</p>
+        <div class="intro">
+            <h1>The Recipe App</h1>
+            <p><strong>Welcome!</strong></p>
+            <h2>Browse Recipes</h2>
+            <p>Please browse our collection of recipes.<br>
+                Try them for yourself and share with family and friends!</p>
+            <h2>Add Recipes</h2>
+            <p>We'd love for you to add your own recipes to our collection!<br>
+                Save them in your own personal recipe book and share them with others.</p>
+        </div>
     </div>
 
 </body>

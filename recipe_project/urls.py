@@ -1,3 +1,5 @@
+# src/recipe_project/urls.py
+
 """
 URL configuration for recipe_project project.
 
@@ -19,9 +21,13 @@ from django.urls import path
 # include package will allow you to use the include() function that will link the urls.py
 from django.urls import include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # The empty quotes '' indicate that this path refers to the home page
-    path('', include('recipes.urls'))
+    path('', include('recipes.urls')),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

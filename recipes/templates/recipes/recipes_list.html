@@ -1,0 +1,57 @@
+<!--src/recipes/templates/recipes/recipes_list.html-->
+{% comment%} HTML tag for heading {% endcomment%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D9B99B;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #0B2838;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        tr,
+        td {
+            color: #0B2838;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Recipe List</h1>
+
+    {% comment%} start of table {% endcomment%}
+    <table border="1" cellpadding="5" cellspacing="5">
+        {% comment%} the tr tag adds a new row {% endcomment%}
+        <tr>
+            {% comment%} the td tag adds a column {% endcomment%}
+            <td>Recipe Name</td>
+            <td>Recipe Images</td>
+        </tr>
+        {% comment%} now go through the list element-by-element {% endcomment%}
+        {% for object in object_list %}
+        <tr>
+            {% comment%} print the name of book {% endcomment%}
+            <td><a href="{{object.get_absolute_url}}">
+                    {{object.name}}
+                </a>
+            </td>
+            {% comment%} display the picture of the recipe {% endcomment%}
+            <td><img src="{{object.pic.url}}" width="200" height="220" /></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
