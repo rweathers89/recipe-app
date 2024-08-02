@@ -1,0 +1,19 @@
+<!--src/templates/auth/success.html-->
+{% load static %} <!-- Load static files to use in the template -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Logged out</title>
+</head>
+
+<body>
+    <h1 class="main-header-login">Thanks for visiting!</h1>
+    <h2 class="logout-message">You have been successfully logged out</h2>
+    <p class="logout-submessage">We will see you next time!</p>
+    <p class="re-log-message">Logged out by mistake? Log back in to continue</p>
+    <a href="{%url 'login' %}" class="login-button-onlogout">Login</a>
+</body>
+
+</html>
