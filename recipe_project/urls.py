@@ -23,14 +23,18 @@ from django.urls import include
 
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import login_view, logout_view
+from .views import login_view, logout_view, search_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # The empty quotes '' indicate that this path refers to the home page
     path('', include('recipes.urls')),
+    path("recipes/", include("recipes.urls")),
+    # add login path
     path('login/', login_view, name='login'),
     path('success/', logout_view, name='success'),
+    # add search path
+    path('search/', search_view, name='search')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,6 +10,10 @@
     <title>Recipe List</title>
     <style>
         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
             font-family: Arial, sans-serif;
             background-color: #D9B99B;
             margin: 0;
@@ -29,9 +33,13 @@
 </head>
 
 <body>
-    <a href="{%url 'success' %}"> Logout </a>
-    <br>
+
     <h1>Recipe List</h1>
+    <div>
+
+
+        <a href="{%url 'success' %}"> Logout </a>
+    </div>
 
     {% comment%} start of table {% endcomment%}
     <table border="1" cellpadding="5" cellspacing="5">
@@ -44,7 +52,7 @@
         {% comment%} now go through the list element-by-element {% endcomment%}
         {% for object in object_list %}
         <tr>
-            {% comment%} print the name of book {% endcomment%}
+            {% comment%} print the name of recipe {% endcomment%}
             <td><a href="{{object.get_absolute_url}}">
                     {{object.name}}
                 </a>

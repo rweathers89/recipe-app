@@ -1,0 +1,61 @@
+<!--src/recipes/templates/recipes/recipes_search.html-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes Search</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #D9B99B;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #0B2838;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <a href="{%url 'success' %}"> Logout </a>
+    </div>
+    <br>
+    <h1> Search for Recipes</h1>
+    <div class="content">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.recipe_name}}
+            {{form.chart_type}}
+            <button type="submit">Search</button>
+
+        </form>
+        <br>
+        <!-- CHART-->
+        <hr>
+        <br>
+        <br>
+        <div class="chart">
+            {% if recipe_df %}
+            {{recipe_df|safe}}
+            <br>
+            <img alt="chart" src="data:image/png;base64, {{chart|safe}}">
+            {% else %}
+            <h3> No Data Found</h3>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
