@@ -1,15 +1,15 @@
-<!--src/recipes/templates/recipes/recipes_list.html-->
-{% comment%} HTML tag for heading {% endcomment%}
-{% load static %}
-
+<!--src/recipes/templates/recipes/create.html-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title>RecipeApp | About</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe List</title>
-    <link rel="stylesheet" href="../../../../static/recipes/css/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static '../../../../static/recipes/css/styles.css' %}">
     <style>
         body {
             background-image: url("{% static 'recipes/images/recipes-list-background.jpg' %}");
@@ -24,7 +24,7 @@
             color: #0B2838;
         }
 
-        table {
+        .about-body {
             background-color: #FAF9F6;
             border: 1px solid #444;
             border-radius: 8px;
@@ -34,7 +34,7 @@
             margin: 10px;
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            width: 300px;
+            width: 50%;
             transition: transform 0.2s;
         }
 
@@ -71,13 +71,7 @@
             color: rgb(188, 188, 188);
         }
 
-        .recipe-image {
-            max-width: 50%;
-            height: auto;
-            max-height: 150px;
-            margin-bottom: 10px;
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-        }
+
 
         .recipe-item a {
             text-decoration: none;
@@ -122,60 +116,36 @@
 </head>
 
 <body>
-
     <nav class="navigation-list">
         <ul role="menubar">
+            <li><a class="active" href="{% url 'recipes:recipes_list' %}">All Recipes</a></li>
             <li><a href="{% url 'recipes:recipes_search' %}">Search</a></li>
             <li><a href="{% url 'recipes:create' %}">Create</a></li>
-            <li><a href="{% url 'recipes:about' %}">About</a></li>
             <li style="float:right"><a href="{% url 'success' %}">Logout</a></li>
         </ul>
     </nav>
-    <h1>Recipe List</h1>
-    <!--<div class="recipe-container">
-            {% for object in object_list %}
-            <a href="{{ object.get_absolute_url }}" class="recipe-card">
 
-                <h2 class="recipe-name">{{ object.name }}</h2>
-                <div class="recipe-pic">
-                    {% if object.pic %}
-                    <img src="{{ object.pic.url }}" alt="{{ object.name }}">
-                    {% endif %}
-                </div>
-            </a>
-            {% endfor %}
+    <div class="about-title">
+        <h1>About Me</h1>
+    </div>
+
+    <div class="about-body">
+        <div class="image-container">
+            <img src="{{ object.pic.url }}" class="image">
         </div>
-    -->
+        <p class="card-text">
+            Hi there! I'm Rachel and I just created this recipe app.<br>
+            Through my studies at CareerFoundry I've had the opportunity to develop my web development skills. <br>
 
-
-
-    {% comment%} start of table {% endcomment%}
-    <table cellpadding="5" cellspacing="5" class="recipe table">
-        {% comment%} the tr tag adds a new row {% endcomment%}
-        <thead>
-            <tr>
-                {% comment%} the td tag adds a column {% endcomment%}
-                <td>Recipe Name</td>
-                <td>Recipe Images</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% comment%} now go through the list element-by-element {% endcomment%}
-            {% for object in object_list %}
-            <tr>
-                {% comment%} print the name of recipe {% endcomment%}
-                <td class="recipe-item"><a href="{{object.get_absolute_url}}">
-                        {{object.name}}
-                    </a>
-                </td>
-                {% comment%} display the picture of the recipe {% endcomment%}
-                <td class="recipe-image"><img src="{{object.pic.url}}" width="300" height="275" /></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-
+        </p>
+        <p class="card-text">I have experience in:</p>
+        <ul>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+        </ul>
+    </div>
 </body>
 
 </html>

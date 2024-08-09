@@ -1,5 +1,6 @@
 # src/recipes/forms.py
 from django import forms
+from .models import Recipe
 
 #specify choices as a tuple
 CHART__CHOICES = (
@@ -16,8 +17,13 @@ class RecipeSearchForm(forms.Form):
 
 class SearchForm(forms.Form):
     search_term = forms.CharField(max_length=200, required=False, label="Search Recipes")
-    # ingredients = forms.CharField(max_length=200, required=False)
+    # ingredients = forms.CharField(max_length=200, required=False, label="Ingredients")
     show_all = forms.BooleanField(required=False)
+
+class CreateRecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ["name", "cooking_time", "difficulty", "ingredients", "pic"]
 
 
 '''

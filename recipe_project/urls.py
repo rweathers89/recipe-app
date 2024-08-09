@@ -24,6 +24,8 @@ from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import login_view, logout_view, search_view
+from recipes.views import create_view
+from recipes.views import recipes_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,9 +34,11 @@ urlpatterns = [
     path("recipes/", include("recipes.urls")),
     # add login path
     path('login/', login_view, name='login'),
+    path("", recipes_home, name="home"),
     path('success/', logout_view, name='success'),
     # add search path
-    path('search/', search_view, name='search')
+    path('search/', search_view, name='search'),
+    path('create/', create_view, name='create'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

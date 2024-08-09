@@ -6,13 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../static/recipes/css/styles.css">
     <title>Recipes Search</title>
     <style>
         body {
+            background-image: url("{% static 'recipes/images/recipes-list-background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
+            justify-content: flex-start;
             font-family: Arial, sans-serif;
             background-color: #D9B99B;
             margin: 0;
@@ -23,13 +28,54 @@
             color: #0B2838;
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            width: 100%;
+            padding: 0;
+            /* border-bottom: 2px solid lightgray; */
+            margin: 5px;
+            justify-content: flex-end;
+
+        }
+
+        .navigation-list li {
+            margin-right: 20px;
+
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            /* Remove underline from links */
+            color: #c4650c;
+            /* Set link color */
+            font-weight: bold;
+            /* Make the text bold */
+        }
+
+        nav ul li a:hover {
+            color: #0B2838;
+            /* Change color on hover */
+        }
+
+        .chart {
+            background-color: #FAF9F6;
+
+        }
     </style>
 </head>
 
 <body>
     <div>
-
-        <a href="{%url 'success' %}"> Logout </a>
+        <nav class="navigation-list">
+            <ul role="menubar">
+                <li style="float: right;"><a class="active" href="{% url 'recipes:recipes_list' %}">All Recipes</a></li>
+                <li style="float: right;"><a href="{% url 'recipes:create' %}">Create</a></li>
+                <li style="float: right;"><a href="{% url 'recipes:about' %}">About</a></li>
+                <li style="float: right;"> <a href="{%url 'success' %}"> Logout </a></li>
+            </ul>
+        </nav>
     </div>
     <br>
     <h1> Search for Recipes</h1>

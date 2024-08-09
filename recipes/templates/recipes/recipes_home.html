@@ -43,34 +43,19 @@
             color: #D9B99B;
         }
 
-        /* .header {
-            position: relative;
-            text-align: center;
+        .login-button {
+            background-color: #c4650c;
             color: white;
-
-            padding: 200px 0;
-            margin-top: 5%;
-            cursor: pointer;
-            border: rgba(100, 40, 40);
-            border-width: 20px;
-            border-style: inset;
-        }
-
-        .header h1 {
-            position: relative;
-            display: inline-block;
-            background: rgba(40, 30, 20, 0.9);
-            padding: 10px 20px;
+            border: none;
             border-radius: 5px;
-            font-size: xxx-large;
-            margin: 0;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .subtext {
-            margin-top: 20px;
-            font-size: large;
-            color: #333;
-        }*/
+        .login-button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 
@@ -80,7 +65,7 @@
             <h1>The Recipe App</h1>
             <p><strong>Welcome!</strong></p>
             <br>
-            <a href="{%url 'login' %}"> Login </a>
+            <a href="{%url 'login' %}" class="login-button"> Login </a>
             <br>
             <h2>Browse Recipes</h2>
             <p>Please browse our collection of recipes.<br>

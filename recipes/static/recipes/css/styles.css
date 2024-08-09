@@ -1,0 +1,136 @@
+/*src/recipes/static/recipes/css/styles.css*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #0B2838;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.page-title {
+    font-size: 14vw;
+    color: rgb(188, 188, 188);
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.963);
+    font-family: 'Fuggles', cursive;
+    margin-top: 90px;
+}
+
+.back-button {
+    position: fixed;
+    font-family: 'Roboto';
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.963);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    letter-spacing: 2px;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: rgb(188, 188, 188);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+.logout-button {
+    position: fixed;
+    font-family: 'Roboto';
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.963);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: rgb(188, 188, 188);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #555;
+}
+
+.about-button {
+    position: fixed;
+    font-family: 'Roboto';
+    font-size: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.963);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    letter-spacing: 2px;
+    top: 10px;
+    right: 130px;
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(188, 188, 188);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.about-button:hover {
+    background-color: #555;
+}
+
+.add-button {
+    position: fixed;
+    font-family: 'Roboto';
+    font-size: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.963);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    letter-spacing: 2px;
+    top: 10px;
+    right: 230px;
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(188, 188, 188);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #555;
+}
+
+.navigation-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 2px solid lightgray;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.navigation-list li {
+    list-style-type: none;
+
+}
+
+/*tr,
+td {
+    color: #0B2838;
+}*/

@@ -1,0 +1,142 @@
+<!--src/recipes/templates/recipes/create.html-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RecipeApp | Create</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static '../../../../static/recipes/css/styles.css' %}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'recipes/images/recipes-list-background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #D9B99B;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-field label {
+            display: inline-block;
+            width: 150px;
+            /* Adjust as needed for proper alignment */
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 200px;
+            /* Adjust as needed for proper alignment */
+        }
+
+        .form-field select {
+            width: 208px;
+            height: 25px;
+            appearance: none;
+            /* Remove default styling in modern browsers */
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            width: 100%;
+            padding: 0;
+            /* border-bottom: 2px solid lightgray; */
+            margin: 5px;
+            justify-content: flex-end;
+
+        }
+
+        .navigation-list li {
+            margin-right: 20px;
+
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            /* Remove underline from links */
+            color: #c4650c;
+            /* Set link color */
+            font-weight: bold;
+            /* Make the text bold */
+        }
+
+        nav ul li a:hover {
+            color: #0B2838;
+            /* Change color on hover */
+        }
+
+        .create-body {
+            background-color: #FAF9F6;
+            border: 1px solid #444;
+            border-radius: 8px;
+            outline: 1px solid transparent;
+            outline-color: rgba(255, 255, 255, .3);
+            outline-offset: -7px;
+            margin: 100px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            transition: transform 0.2s;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navigation-list">
+        <ul role="menubar">
+            <li><a class="active" href="{% url 'recipes:recipes_list' %}">All Recipes</a></li>
+            <li><a href="{% url 'recipes:recipes_search' %}">Search</a></li>
+
+            <li><a href="{% url 'recipes:about' %}">About</a></li>
+            <li style="float: right"><a href="{% url 'success' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="create-body">
+        <h1>Create a Recipe</h1>
+        <h2>All fields are required.</h2>
+
+        {% if messages %} {% for message in messages %}
+        <script>
+            alert("{{ message }}");
+        </script>
+        {% endfor %} {% endif %}
+        <form action="" method="POST" class="form_data" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-field">
+                <label for="id_name">Name:</label>
+                {{ create_form.name }}
+            </div>
+            <div class="form-field">
+                <label for="id_cooking_time">Cooking time (minutes):</label>
+                {{ create_form.cooking_time }}
+            </div>
+            <div class="form-field">
+                <label for="id_difficulty">Difficulty:</label>
+                {{ create_form.difficulty }}
+            </div>
+            <div class="form-field">
+                <label for="id_ingredients">Ingredients:</label>
+                {{ create_form.ingredients }}
+            </div>
+            <div class="form-field">
+                <label for="id_pic">Picture:</label>
+                {{ create_form.pic }}
+            </div>
+            <button type="submit" class="create-btn">Create</button>
+        </form>
+    </div>
+</body>
+
+</html>

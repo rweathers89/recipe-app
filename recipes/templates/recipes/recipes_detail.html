@@ -9,36 +9,104 @@
     <title>Recipe Details</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'recipes/images/recipes-list-background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #D9B99B;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: #D9B99B;
-            margin: 0;
-            padding: 0;
         }
 
         h1 {
             color: #0B2838;
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
+
+        table {
+            background-color: #FAF9F6;
+            border: 1px solid #444;
+            border-radius: 8px;
+            outline: 1px solid transparent;
+            outline-color: rgba(255, 255, 255, .3);
+            outline-offset: -7px;
+            margin: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            transition: transform 0.2s;
+        }
+
+        .recipe-image {
+            max-width: 50%;
+            height: auto;
+
+            margin-bottom: 10px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            width: 100%;
+            padding: 0;
+            /* border-bottom: 2px solid lightgray; */
+            margin: 5px;
+            justify-content: flex-end;
+
+        }
+
+        .navigation-list li {
+            margin-right: 20px;
+
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            /* Remove underline from links */
+            color: #c4650c;
+            /* Set link color */
+            font-weight: bold;
+            /* Make the text bold */
+        }
+
+        nav ul li a:hover {
+            color: #0B2838;
+            /* Change color on hover */
+        }
     </style>
 </head>
 
 <body>
+    <nav class="navigation-list">
+        <ul role="menubar">
+            <li style="float:right"><a class="active" href="{% url 'recipes:recipes_list' %}">All Recipes</a></li>
+        </ul>
+    </nav>
+    <h2>{{object.name}}</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Name:</strong> {{object.name}} </td>
+            </tr>
+            <tr>
+                <td><strong>Cooking Time (minutes):</strong> {{object.cooking_time}}</td>
+            </tr>
+            <tr>
+                <td><strong>Ingredients:</strong> {{object.ingredients}}</td>
+            </tr>
+            <tr>
+                <td><strong>Difficulty: </strong>{{object.difficulty}}</td>
+            </tr>
+        </tbody>
 
-    <h2>Recipe Details: {{object.name}}</h2>
-
-    <b>Name: </b> {{object.name}} <br>
-
-    <b>Cooking Time: </b> {{object.cooking_time}} <br>
-
-    <b>Ingredients: </b> {{object.ingredients}} <br>
-
-    <b> Difficulty: </b> {{object.difficulty}} <br>
-
-    <img src="{{object.pic.url}}" width="250" height="300" />
+    </table>
+    <img src="{{object.pic.url}}" class="recipe-image" />
 </body>
 
 </html>

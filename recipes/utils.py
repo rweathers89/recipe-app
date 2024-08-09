@@ -45,7 +45,7 @@ def get_chart(chart_type, data, **kwargs):
     plt.switch_backend('AGG')
 
     #specify figure size
-    fig=plt.figure(figsize=(6,3))
+    fig=plt.figure(figsize=(10,6))
 
     # Counting the number of ingredients for each recipe
     data['number_ingredients'] = data['ingredients'].apply(lambda x: len(x.split(',')))
@@ -57,6 +57,7 @@ def get_chart(chart_type, data, **kwargs):
        plt.xlabel('Recipe Name')
        plt.ylabel('Cooking Time in minutes')
        plt.title('Recipes by Cooking Time')
+       plt.xticks(rotation=65)
 
     elif chart_type == '#2':
         #generate pie chart based on difficulty.
@@ -66,6 +67,7 @@ def get_chart(chart_type, data, **kwargs):
         values=difficulty_counts.values
         plt.pie(values, labels=labels)
         plt.title('Recipes by Difficulty')
+        plt.xticks(rotation=65)
 
     elif chart_type == '#3':
         #plot line chart based on recipe name on x-axis and number of ingredients on y-axis
@@ -73,6 +75,8 @@ def get_chart(chart_type, data, **kwargs):
         plt.xlabel('Recipe Name')
         plt.ylabel('Number of Ingredients')
         plt.title('Recipes by Number of Ingredients')
+        plt.xticks(rotation=65)
+        
     else:
         print ('unknown chart type')
 

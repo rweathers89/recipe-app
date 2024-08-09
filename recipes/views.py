@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Recipe
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import RecipeSearchForm, SearchForm
+from django.contrib.auth.decorators import (login_required)  # to protect function-based view
+from .forms import RecipeSearchForm, SearchForm, CreateRecipeForm
 import pandas as pd
 from .utils import get_recipename_from_id, get_chart
+from django.contrib import messages
 
 # Create your views here.
-def home(request):
+def recipes_home(request):
    return render(request, 'recipes/recipes_home.html')
+
+def about(request):
+    return render(request, "recipes/about.html")
 
 #class-based view
 class RecipeListView(LoginRequiredMixin, ListView):
@@ -53,7 +58,7 @@ class RecipeDetailView(LoginRequiredMixin, DetailView):
 # @login_required before the defined function
 
 
-
+@login_required
 def search_view(request):
     form = RecipeSearchForm(request.POST or None)
     recipe_df = None
@@ -80,6 +85,20 @@ def search_view(request):
     }
     #load the recipes/search.html page using the data above
     return render(request, 'recipes/recipes_search.html', context)
+
+@login_required
+def create_view(request):
+    if request.method == "POST":
+        create_form = CreateRecipeForm(request.POST, request.FILES)
+        if create_form.is_valid():
+            create_form.save()
+            messages.success(request, "Recipe created successfully.")
+            return redirect("create")
+    else:
+        create_form = CreateRecipeForm()
+
+    context = {"create_form": create_form}
+    return render(request, "recipes/create.html", context)
 
 '''
 

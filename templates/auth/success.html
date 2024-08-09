@@ -1,19 +1,68 @@
 <!--src/templates/auth/success.html-->
-{% load static %} <!-- Load static files to use in the template -->
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} <!-- Load static files to use in the template -->
+    <link rel="stylesheet" href="../../static/styles.css">
     <title>Logged out</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://i.etsystatic.com/10836510/r/il/b5ba08/1748425540/il_1588xN.1748425540_d87y.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #0B2838;
+            outline: 1px solid transparent;
+            outline-color: rgba(255, 255, 255, .5);
+            outline-offset: -10px;
+            color: rgb(188, 188, 188);
+            border-radius: 8px;
+            padding: 80px;
+            padding-top: 30px;
+            padding-bottom: 70px;
+            text-align: center;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 1);
+        }
+
+        .login-button {
+            background-color: #c4650c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 
 <body>
-    <h1 class="main-header-login">Thanks for visiting!</h1>
-    <h2 class="logout-message">You have been successfully logged out</h2>
-    <p class="logout-submessage">We will see you next time!</p>
-    <p class="re-log-message">Logged out by mistake? Log back in to continue</p>
-    <a href="{%url 'login' %}" class="login-button-onlogout">Login</a>
+
+    <div class="login-container">
+        <h1>Recipe App</h1>
+        <h2 class="main-header-login">Thanks for visiting!</h2>
+        <h3>You have been successfully logged out</h3>
+        <p>We will see you next time!</p>
+        <p>Logged out by mistake? Log back in to continue</p>
+        <a href="{%url 'login' %}" class="login-button">Login</a>
+    </div>
 </body>
 
 </html>
