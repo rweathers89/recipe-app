@@ -32,6 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    'https://recipe-app-nebj.onrender.com'
   #  'your-render-domain.onrender.com', 
   #  'your-custom-domain.com'
     ]
@@ -148,3 +149,7 @@ MEDIA_ROOT= BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
