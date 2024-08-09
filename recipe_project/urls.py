@@ -31,7 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # The empty quotes '' indicate that this path refers to the home page
     path('', include('recipes.urls')),
-    path("recipes/", include("recipes.urls")),
+    #path("recipes/", include("recipes.urls")),
     # add login path
     path('login/', login_view, name='login'),
     path("", recipes_home, name="home"),
