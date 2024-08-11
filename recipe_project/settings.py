@@ -32,8 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'recipe-app-nebj.onrender.com',
-    'recipe-app-rach.onrender.com'
+    'recipe-app-nebj.onrender.com'
   #  'your-render-domain.onrender.com', 
   #  'your-custom-domain.com'
     ]
