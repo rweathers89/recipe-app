@@ -3,9 +3,13 @@
 ## Overview
 This project focuses on creating a web application using the Django framework. The main focus of this project will be on the backend with a light touch of styling on the frontend. The final web application will be dynamic and multi-user, letting users sign up and create their own content. It’ll also have statistical dashboards, implementing new data analytics and data visualization skills.
 
+## Deployed Link
+https://recipe-app-nebj.onrender.com/
+
 ## Preview
 
 <!-- insert screenshot of final welcome page -->
+<img src="media/welcome.jpg" alt="welcome page" width="300" height="225">
 
 ## Project Deliverables
 Over the course of each Exercise in this Achievement, you’ll learn how to implement new features in your web application. 
