@@ -9,7 +9,7 @@ https://recipe-app-nebj.onrender.com/
 ## Preview
 
 <!-- insert screenshot of final welcome page -->
-<img src="media/welcome.jpg" alt="welcome page" width="300" height="225">
+<img src="media/welcome.jpg" alt="welcome page" width="400" height="225">
 
 ## Project Deliverables
 Over the course of each Exercise in this Achievement, you’ll learn how to implement new features in your web application. 
